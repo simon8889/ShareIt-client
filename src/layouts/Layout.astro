@@ -1,9 +1,12 @@
 ---
+import Header from '../components/Header.astro'
+
 interface Props {
 	title: string;
 }
 
 const { title } = Astro.props;
+const darkTheme = true
 ---
 
 <!doctype html>
@@ -14,37 +17,53 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 		<title>{title}</title>
 	</head>
 	<body>
+		<Header />
 		<slot />
 	</body>
 </html>
 <style is:global>
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+	    --title-color: #6EC1E4; 
+	    --text-color: #121212;
+	    --background: #ffffff; 
+	    --color-accent: #4A90E2;
+		--transparency: #6ec1e4c5;
 	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
+	
+	* {
+	    margin: 0;
+	    padding: 0;
+	    box-sizing: border-box;
 	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+
+	html, body {
+	    height: 100%;
+	    font-family: sans-serif;
+		background: var(--background);
+	}
+
+	body {
+	    line-height: 1.6;
+	}
+
+	img, video {
+	    max-width: 100%;
+	    height: auto;
+	}
+
+	ul, ol {
+	    list-style: none;
+	}
+
+	a {
+	    text-decoration: none;
+	    color: inherit;
 	}
 </style>

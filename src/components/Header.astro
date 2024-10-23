@@ -1,0 +1,96 @@
+---
+import { ThemeSwitcher } from './ThemeSwitcher/ThemeSwitcher'
+---
+
+<header>
+	<h1>ShareIt!</h1>
+	<nav>
+		<ul>
+			<li>
+				<a>Home</a>
+			</li>
+			<li>
+				<a>About</a>
+			</li>
+			<li>
+				<a class="header__mainButton">Share a File Now!</a>
+			</li>
+			<ThemeSwitcher client:load />
+		</ul>
+	</nav>
+</header>
+
+<style>
+	header {
+		width: 100%;
+		height: 14%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 80px;
+	}
+
+	h1 {
+		font-family: "Montserrat", sans-serif;
+		font-style: italic;
+		color: var(--title-color);
+		font-size: 2.5rem;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	nav {
+		width: 45%;
+	}
+
+	ul {
+		font-family: "Montserrat", sans-serif;
+		font-weight: 600;
+		font-size: 1.2rem;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		color: var(--transparency);
+	}
+	
+	li {
+		cursor: pointer;
+	    transition: color 0.5s ease;
+	}
+
+	li:hover {
+		color: var(--color-accent);
+	}
+
+	.header__mainButton {
+	    border: 2px solid var(--title-color);
+	    border-radius: 10px;
+	    padding: 7px 15px;
+		color: var(--title-color);
+	    background: linear-gradient(90deg, var(--title-color) 50%, transparent 50%);
+	    background-size: 200% 100%; 
+	    background-position: 100% 0; 
+	    position: relative; 
+	    transition: background-position 0.5s ease, color 0.5s ease	;
+	    overflow: hidden; 
+	}
+
+	.header__mainButton::before {
+	    content: '';
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	    background: var(--title-color);
+	    z-index: -1; 
+	    transition: width 0.5s ease; 
+	    width: 0;
+	}
+
+	.header__mainButton:hover {
+		background-color: var(--title-color);
+	    color: var(--background);
+	}
+
+</style>
