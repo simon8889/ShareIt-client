@@ -1,0 +1,56 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import DownloadFile from "../../components/DownloadFile/DownloadFile"
+
+
+export const prerender = false;
+const { fileToSearch } = Astro.params;
+
+const response = await fetch(`${import.meta.env.PUBLIC_SHAREIT_API_URL}/v1/files/info?file_id=${fileToSearch}`)
+const data = await response.json()
+if (response.status === 404) {
+  Astro.response.status = 404;
+}
+const {file_id, filename, has_password, created_at} = data
+
+const creationDate = new Date(created_at).toLocaleString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  hour: '2-digit',
+  minute: '2-digit',
+  second: undefined,
+  hour12: true 
+})
+
+---
+<Layout title="ShareIt">
+  <main>
+    <div class="fileToSearch__title">
+      <h2>Here is your file: {filename}</h2>
+      <h4>Created at {creationDate}</h4>
+    </div>
+    <DownloadFile client:load fileToSearch={file_id} filename={filename} hasPassword={has_password}/>
+  </main>
+</Layout>
+
+<style>
+  main {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  div {
+    margin: 30px;
+  }
+  
+   .fileToSearch__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+  }
+</style>

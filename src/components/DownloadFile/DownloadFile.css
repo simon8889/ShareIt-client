@@ -1,0 +1,92 @@
+@keyframes showUp {
+	0% {
+		font-size: 0rem;
+		opacity: 0;
+	}
+	
+	100% {
+		font-size: .8rem;
+		opacity: 1;
+	}
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.DownloadFile__spinner {
+    animation: rotate 8s linear infinite;
+}
+
+.DownloadFile__password {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: var(--text-color);
+	font-family: "Montserrat", sans-serif;
+	font-weight: 500;
+}
+
+.DownloadFile__info {
+	border-radius: 5px;
+	padding: 5px 10px;
+	margin: 5px;
+	font-size: .8rem;
+	font-weight: 800;
+	animation: showUp .5s ease;
+}
+
+.DownloadFile__password > input[type="text"] {
+	margin: 5px;
+	font-size: 1rem;
+	padding: 3px;
+	outline: none;
+	border: none;
+	border-bottom: 1px solid var(--title-color);
+	background-color: var(--background-color);
+	color: var(--text-color);
+	opacity: .7;
+}
+
+.DownloadFile__password > input[type="text"]:focus {
+	opacity: 1;
+	transition: opacity .5s ease;
+	
+}
+
+.DownloadFile__field {
+	width: 450px;
+	height: 250px;
+	background-color: var(--title-color);
+	border-radius: 5px;
+	display: grid;
+	place-items: center;
+	border: 2px var(--color-accent) dotted;
+	cursor: pointer;
+	font-family: "Montserrat", sans-serif;
+	color: #0000007c;
+}
+
+.DownloadFile__field:hover {
+	color: #000;
+	transition: color .5s ease;
+}
+
+.DownloadFile__field > div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.DownloadFile__icon {
+	margin: 20px;
+}
+
+.DownloadFile__field h5 {
+	font-size: 1.2rem;
+}
