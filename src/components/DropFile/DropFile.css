@@ -1,0 +1,17 @@
+.DropFile {
+	width: 100%;
+	height: 100%;
+	display: grid;
+	place-items: center;
+	font-family: "Montserrat", sans-serif;
+	font-weight: 800;
+	font-size: 2.5rem;
+	padding: 3rem;
+	text-align: center;
+	color: var(--title-color);
+}
+
+.DropFile--border{
+	border: 3px dashed var(--title-color);
+	cursor: pointer;
+}

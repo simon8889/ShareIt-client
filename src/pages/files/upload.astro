@@ -1,0 +1,18 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { DropFile }  from "../../components/DropFile/DropFile"
+---
+<Layout title="ShareIt - Upload">
+	<main>
+		<DropFile client:load/>
+	</main>
+</Layout>
+
+<style>
+	main {
+		width: 70%;
+		height: 80%;
+		margin: auto;
+		border-radius: 10px;
+	}
+</style>

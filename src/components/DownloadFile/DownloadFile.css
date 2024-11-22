@@ -62,11 +62,11 @@
 .DownloadFile__field {
 	width: 450px;
 	height: 250px;
-	background-color: var(--title-color);
+	background-color: #00000018;
 	border-radius: 5px;
 	display: grid;
 	place-items: center;
-	border: 2px var(--color-accent) dotted;
+	border: none;
 	cursor: pointer;
 	font-family: "Montserrat", sans-serif;
 	color: #0000007c;

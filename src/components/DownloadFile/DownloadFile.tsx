@@ -1,8 +1,7 @@
 import { useState } from "react"
-import { FaFileDownload } from "react-icons/fa" 
 import "./DownloadFile.css"
-import { PiSpinnerBold } from "react-icons/pi";
-import { MdDownloading } from "react-icons/md";
+import { PiSpinnerBold } from "react-icons/pi"
+import { MdDownloading } from "react-icons/md"
 
 
 const DownloadPage = ({ fileToSearch, filename, hasPassword }: {fileToSearch: string, filename: string, hasPassword: boolean}) => {
@@ -26,6 +25,7 @@ const DownloadPage = ({ fileToSearch, filename, hasPassword }: {fileToSearch: st
     })
     
     setStatusCode(response.status)
+    setIsLoading(false)
     if(!response.ok) return
     const disposition = response.headers.get("Content-Disposition")
     const filename = disposition && disposition.includes("filename=") 
@@ -41,7 +41,6 @@ const DownloadPage = ({ fileToSearch, filename, hasPassword }: {fileToSearch: st
     tempLink.click()
     window.URL.revokeObjectURL(url)
     document.body.removeChild(tempLink)
-    setIsLoading(false)
   }
 
   return (
